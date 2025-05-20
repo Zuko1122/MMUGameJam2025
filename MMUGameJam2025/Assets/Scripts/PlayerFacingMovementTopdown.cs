@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerFacingCursorTopdown : MonoBehaviour
+public class PlayerFacingMovementTopdown : MonoBehaviour
 {
     private FollowPlayer followPlayerScript;
     // Update is called once per frame
@@ -24,18 +24,5 @@ public class PlayerFacingCursorTopdown : MonoBehaviour
 
         // Step 4: Apply rotation around Z axis (for 2D top-down)
         transform.rotation = Quaternion.Euler(0, 0, angle);
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        // Get angle from rotation
-        float angle = transform.eulerAngles.z * Mathf.Deg2Rad;
-
-        // Calculate direction vector from angle
-        Vector3 direction = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0);
-
-        // Draw a red line (from character forward)
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position + direction * 2f);
     }
 }
