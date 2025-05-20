@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class PlayerFacingCursorTopdown : MonoBehaviour
 {
-    private FollowPlayer followPlayerScript;
+    [SerializeField] private FollowPlayer followPlayerScript;
     // Update is called once per frame
     void FixedUpdate()
     {
-        //Vector3 mousePosition = Input.mousePosition;
-        ////followPlayerScript.offset.z
-        //mousePosition.z = 100;
+        Vector3 mousePosition = Input.mousePosition;
 
-        //created facing cursor script to rotate the player towards player movement
+        mousePosition.z = Mathf.Abs(followPlayerScript.offset.z);
+
         // Step 1: Get mouse position in world space
-        Vector3 mousePosWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mousePosWorld = Camera.main.ScreenToWorldPoint(mousePosition);
 
         // Step 2: Get direction from character to mouse
         Vector2 direction = (mousePosWorld - transform.position);
