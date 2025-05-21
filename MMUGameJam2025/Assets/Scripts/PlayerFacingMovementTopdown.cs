@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class PlayerFacingMovementTopdown : MonoBehaviour
 {
-    private FollowPlayer followPlayerScript;
     // Update is called once per frame
     void FixedUpdate()
     {
-        //Vector3 mousePosition = Input.mousePosition;
-        ////followPlayerScript.offset.z
-        //mousePosition.z = 100;
 
         //created facing cursor script to rotate the player towards player movement
         // Step 1: Get mouse position in world space
